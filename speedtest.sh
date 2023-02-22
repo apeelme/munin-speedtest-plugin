@@ -17,6 +17,7 @@ case $1 in
     exit 0;;
     esac
 
+# a TMP eléréséhez szükséges a PrivateTmp-t false-ra állítani a /lib/systemd/system/munin-node.service-ben majd service restart!
 OUTPUT=`cat /tmp/speedtest.out`
 DOWNLOAD=`echo "$OUTPUT" | grep Download | sed 's/[a-zA-Z:]* \([0-9]*\.[0-9]*\) [a-zA-Z/]*/\1/'`
 UPLOAD=`echo "$OUTPUT" | grep Upload | sed 's/[a-zA-Z:]* \([0-9]*\.[0-9]*\) [a-zA-Z/]*/\1/'`
